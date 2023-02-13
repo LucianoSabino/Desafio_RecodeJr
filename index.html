@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bola de Cristal Recode</title>
+    <style>
+        /* *{
+            font-family: sans-serif;
+            background: rgb(5, 5, 5);
+            color: #fff;
+        } */
+
+        img {
+            width: 1500px;
+            height: 500px;
+        }
+
+        button {
+            cursor: pointer;
+            background: #974343;
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="img/logo-recode.png" alt="logo-recode">
+            <h1>O selo magico da Recode vai revelar seu destino !</h1>
+            <p>Clique em fazer pergunta para que seu destino seja revelado.</p>
+            <input type="text" placeholder="Digite sua pergunta" class="texto">
+            <button class="btn">Fazer pergunta</button>
+        </div>
+        <!-- <div class="response"></div> -->
+        <span class="texto"></span>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.btn')
+        const resposta = [
+            "Certeza!",
+            "Não tenho tanta certeza.",
+            "É decididamente assim.",
+            "Não conte com isso.",
+            "Sem dúvidas!",
+            "Pergunte novamente mais tarde.",
+            "Sim, definitivamente!",
+            "Minha resposta é não.",
+            "Você pode contar com isso.",
+            "Melhor não te dizer agora.",
+            "A meu ver, sim.",
+            "Minhas fontes dizem não.",
+            "Provavelmente.",
+            "Não é possível prever agora.",
+            "Perspectiva boa.",
+            "As perspectivas não são tão boas.",
+            "Sim.",
+            "Concentre-se e pergunte novamente.",
+            "Sinais apontam que sim."
+        ]
+        
+
+        btn.addEventListener("click", function(){
+            document.querySelector('.texto').value = ''
+
+            function msg (){
+                let respost = Math.floor(Math.random() * resposta.length)
+                console.log('foi')
+                return resposta[respost]
+            }
+            // Faz com quer a cada vez que entra no arrey ele pega index difeerente
+            // Graças a função Math.random que etorna um número pseudo-aleatório, por isso faço a mutiplicação com o meu aarrey
+            
+            
+            const span = document.createElement("span")
+            span.classList.add('ativo')
+            span.innerHTML = msg()
+
+            const content = document.querySelector('.content').insertAdjacentElement("beforeend", span)
+
+        })
+    </script>
+</body>
+</html>
